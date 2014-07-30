@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <title>App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
+        <form ng-submit="addContact()">
+            <div class="white">
+        Extension Start: <input type="text" required ng-model="Ext" placeholder="2000, 200, 20, etc..."><br/>
+        Phone Label Id: <input type="text" required ng-model="name" placeholder="Office, John, John Doe, etc..."><br/>
+        Context Group: <input type="text" required ng-model="context" placeholder="Context Name e.g., office, accounting, etc..."><br />
+        <br />
+            </div>
+            <input class="btn btn-primary" type="submit" value="Add Contact">
+        </form>
+
+        <br/>
+        <hr/>
+        <div id="data" class="alert alert-success" role="alert">
+            attendant.resourceList.{{num}}.address="{{Ext}}@{{context}}" attendant.resourceList.{{num}}.callAddress="{{Ext}}"
+            attendant.resourceList.{{num}}.label="{{name}}" attendant.resourceList.{{num}}.proceedingIsRecipient="0"
+            attendant.resourceList.{{num}}.type="normal"
+        </div>
+        <hr/>
+    <pre>
+        <div ng-repeat="user in users" >  attendant.resourceList.{{user.num}}.address="{{user.Ext}}@{{user.context}}" attendant.resourceList.{{user.num}}.callAddress="{{user.Ext}}"
+            attendant.resourceList.{{user.num}}.label="{{user.name}}" attendant.resourceList.{{user.num}}.proceedingIsRecipient="0"
+            attendant.resourceList.{{user.num}}.type="normal"</div>
+        </pre>
+    </div>
+</div>
+</body>
+</html>
