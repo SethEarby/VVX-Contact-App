@@ -21,7 +21,7 @@ Context Group: Is the group in which the contacts are located.
 	dtmfmode=rfc2833
 	defaultuser=2001
 	secret=1x8dbyy
-	**context=hood**
+	context=hood <--
 	...
 
 	
