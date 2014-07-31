@@ -1,42 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polycom VVX Contact</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
-    <title>App</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<div class="container">
-    <div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
-        <form ng-submit="addContact()">
-            <div class="white">
-        Extension Start: <input type="text" required ng-model="Ext" placeholder="2000, 200, 20, etc..."><br/>
-        Phone Label Id: <input type="text" required ng-model="name" placeholder="Office, John, John Doe, etc..."><br/>
-        Context Group: <input type="text" required ng-model="context" placeholder="Context Name e.g., office, accounting, etc..."><br />
-        <br />
+<div id='content' ng-app='ContactController' ng-controller='MainController'>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-4" id="left">
+                <form ng-submit="addContact()">
+                    <div class="white">
+                        Extension: <input type="text" required ng-model="Ext"
+                                          placeholder="2000, 200, 20, etc..." size="25"><br/>
+                        Phone Label Id: <input type="text" required ng-model="name"
+                                               placeholder="Office, John, John Doe, etc..." size="25"><br/>
+                        Context Group: <input type="text" required ng-model="context"
+                                              placeholder="SIP Context e.g., sales, IT, etc..." size="25"><br/>
+                    </div>
+                    <br/>
+                    <input class="btn btn-primary" type="submit" value="Add Contact">
+                    <br />
+                </form>
             </div>
-            <input class="btn btn-primary" type="submit" value="Add Contact">
-        </form>
+            <div class="col-sm-6" id="right">
+                <h2 class="white">Polycom VVX Contact Creator</h2>
 
-        <br/>
-        <hr/>
-        <div id="data" class="alert alert-success" role="alert">
-            attendant.resourceList.{{num}}.address="{{Ext}}@{{context}}" attendant.resourceList.{{num}}.callAddress="{{Ext}}"
+                <p id="head">This provides an interface to create the BLF line keys on the Polycom VVX series IP
+                    phones.<br/> This will set the <span style="color: red;">Extensions</span>|<span
+                      style="color: #8e70c1">Phone Label Id</span>|<span
+                      style="color: dodgerblue">Context Group</span> that you can paste into the VVX contact file.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="data">
+        <div class="alert alert-success" role="alert">
+            attendant.resourceList.{{num}}.address="{{Ext}}@{{context}}"
+            attendant.resourceList.{{num}}.callAddress="{{Ext}}"
             attendant.resourceList.{{num}}.label="{{name}}" attendant.resourceList.{{num}}.proceedingIsRecipient="0"
             attendant.resourceList.{{num}}.type="normal"
         </div>
-        <hr/>
-    <pre>
-        <div ng-repeat="user in users" >  attendant.resourceList.{{user.num}}.address="{{user.Ext}}@{{user.context}}" attendant.resourceList.{{user.num}}.callAddress="{{user.Ext}}"
-            attendant.resourceList.{{user.num}}.label="{{user.name}}" attendant.resourceList.{{user.num}}.proceedingIsRecipient="0"
-            attendant.resourceList.{{user.num}}.type="normal"</div>
+  <pre>
+        <code>
+            <div ng-repeat="user in users">
+           attendant.resourceList.<span style="color: darkorange">{{user.num}}</span>.address="<span style="color: red;">{{user.Ext}}</span><span style="color: mediumseagreen">@</span><span style="color: dodgerblue">{{user.context}}</span>" attendant.resourceList.<span style="color: darkorange">{{user.num}}</span>.callAddress=<span style="color: red;">"{{user.Ext}}"</span>
+                attendant.resourceList.<span style="color: darkorange">{{user.num}}</span>.label=<span style="color: #663399">"{{user.name}}"</span> attendant.resourceList.<span style="color: darkorange">{{user.num}}</span>.proceedingIsRecipient="0"
+           attendant.resourceList.<span style="color: darkorange">{{user.num}}</span>.type="normal"
+       </div>
+        </code>
         </pre>
     </div>
 </div>

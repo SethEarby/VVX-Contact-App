@@ -1,13 +1,8 @@
-
-var app = angular.module('MyTutorialApp',[]);
-
-app.controller("MainController", function($scope){
+var app = angular.module('ContactController', []);
+app.controller("MainController", function ($scope) {
     $scope.num = 3;
     $scope.users = [];
-
-    $scope.addContact = function()
-    {
-
+    $scope.addContact = function () {
         $scope.users.push({
             Ext: $scope.Ext,
             name: $scope.name,
@@ -15,12 +10,11 @@ app.controller("MainController", function($scope){
             context: $scope.context
         });
         $scope.num++;
-        $scope.Ext ="";
-        $scope.name="";
-        $scope.context="";
+        $scope.Ext = "";
+        $scope.name = "";
+        $scope.context = "";
         console.log($scope.num);
         console.log($scope.name);
     }
 });
 
-$
