@@ -13,7 +13,7 @@ Enter in the required fields to generate a realtime generation of the contacts.
 Extension: Should be the extension of the contact the key would be entered for. *2001, 200, 20, etc*
 Phone Label Id: Is simply the name of that contact.  *Office, John, John Smith, etc*
 Context Group: Is the group in which the contacts are located.  
-	```
+
 	[2001]
 	type=friend
 	host=dynamic
@@ -23,7 +23,7 @@ Context Group: Is the group in which the contacts are located.
 	secret=1x8dbyy
 	**context=hood**
 	...
-	```
+
 	
 Hopefully, more will be added soon.  Any ideas are open to suggestions :)
 *Created using Angular.js and the Twitter Bootstrap Frameworks*
