@@ -1,10 +1,10 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
-.container {overflow: hidden;}
 input{position: absolute; left: 130px; color: #000; border: 1px solid #3e83bc; }
-#head{color: #fff; font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300; font-size: 1em;}
+.head{color: #fff; font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300; font-size: .3em;}
 body{background: #0A2746;}
 .white{color: #fff; font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:300;}
 h2{margin-top: 0; padding-top: 0;}
 .jumbotron{background: #424549;}
 #left{display: inline;}
 #right{float: right; right: 5%;}
+.btn{width: 110px;}

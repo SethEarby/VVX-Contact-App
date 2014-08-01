@@ -12,9 +12,15 @@ app.controller("MainController", function ($scope) {
         $scope.num++;
         $scope.Ext = "";
         $scope.name = "";
-        $scope.context = "";
         console.log($scope.num);
         console.log($scope.name);
     }
+    $scope.clearContext = function ()
+    {
+        $scope.context ="";
+        console.log('potato');
+    }
+//TODO: Add selectThis function for container;
+
 });
 

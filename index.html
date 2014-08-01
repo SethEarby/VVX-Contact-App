@@ -6,12 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Polycom VVX Contact</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
     <!--[if lt IE 9]>
@@ -34,22 +32,28 @@
                                               placeholder="SIP Context e.g., sales, IT, etc..." size="25"><br/>
                     </div>
                     <br/>
-                    <input class="btn btn-primary" type="submit" value="Add Contact">
+                    <input class="btn btn-success" type="submit" value="Add Contact">
                     <br />
+
+                        <br />
+                        <input class="btn btn-primary" ng-click="clearContext()" type="button" value="Clear Context"/>
+
+
                 </form>
             </div>
             <div class="col-sm-6" id="right">
                 <h2 class="white">Polycom VVX Contact Creator</h2>
-
-                <p id="head">This provides an interface to create the BLF line keys on the Polycom VVX series IP
+                <p class="head">This provides an interface to create the BLF line keys on the Polycom VVX series IP
                     phones.<br/> This will set the <span style="color: red;">Extensions</span>|<span
                       style="color: #8e70c1">Phone Label Id</span>|<span
                       style="color: dodgerblue">Context Group</span> that you can paste into the VVX contact file.
                 </p>
+                    <p class="head">The Context Group will remain filled until <span style="color: dodgerblue">Clear Context</span>
+            is pressed.</p>
             </div>
         </div>
     </div>
-    <div class="container" id="data">
+    <div class="container" id="data" ng-click="selectThis()">
         <div class="alert alert-success" role="alert">
             attendant.resourceList.{{num}}.address="{{Ext}}@{{context}}"
             attendant.resourceList.{{num}}.callAddress="{{Ext}}"
